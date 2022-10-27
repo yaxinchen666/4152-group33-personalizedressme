@@ -1,7 +1,7 @@
 
-Given /the following movies exist/ do |movies_table|
-  movies_table.hashes.each do |movie|
-    Movie.create movie
+Given /the following dresses exist/ do |dresses_table|
+  dresses_table.hashes.each do |dress|
+    Dress.create dress
   end
 end
 
@@ -17,9 +17,9 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   end
 end
 
-Then /I should see all the movies/ do
-  # Make sure that all the movies in the app are visible in the table
-  Movie.all.each do |movie|
-    step %{I should see "#{movie.title}"}
+Then /I should see all the dresses/ do
+  # Make sure that all the dresses in the app are visible in the table
+  Dress.all.each do |dress|
+    step %{I should see "#{dress.title}"}
   end
 end
