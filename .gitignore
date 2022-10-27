@@ -8,3 +8,6 @@ lib/tasks/
 log/
 tmp/
 vendor/bundle
+
+log/
+tmp/
