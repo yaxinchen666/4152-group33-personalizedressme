@@ -10,6 +10,14 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to movies_path and return
+    else
+      @parameter = params[:search].downcase
+    end
+  end
+
   def new
     # default: render 'new' template
   end
