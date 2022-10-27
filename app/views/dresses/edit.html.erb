@@ -1,0 +1,12 @@
+<h2>Edit Existing Dress</h2>
+<%= form_tag dress_path(@dress), :method => :put do %>
+  <%= label :dress, :title, 'Title', :class => 'col-form-label' %>
+  <%= text_field :dress, 'title', :class => 'form-control' %>
+  <%= label :dress, :rating, 'Rating', :class => 'col-form-label'  %>
+  <%= select :dress, :rating, ['G','PG','PG-13','R','NC-17'], {}, {:class => 'form-control col-1'} %>
+  <%= label :dress, :release_date, 'Released On', :class => 'col-form-label'  %>
+  <%= date_select :dress, :release_date, {}, :class => 'form-control col-2 d-inline' %>
+  <br/>
+  <%= submit_tag 'Update Dress Info', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', dresses_path, :class => 'btn btn-secondary' %>
+<% end %>

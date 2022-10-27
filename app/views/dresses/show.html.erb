@@ -1,0 +1,24 @@
+<!--  app/views/dresses/show.html.erb -->
+<h2>Details about <em><%= @dress.title %></em></h2>
+
+<ul id="details">
+  <li>
+    Rating:
+    <%= @dress.rating %>
+  </li>
+  <li>
+    Released on:
+    <%= @dress.release_date.strftime("%B %d, %Y") %>
+  </li>
+</ul>
+
+<h3>Description:</h3>
+<p id="description">
+  <%= @dress.description %>
+</p>
+
+<div class="row">
+  <%= link_to 'Edit', edit_dress_path(@dress), :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Delete', dress_path(@dress), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
+  <%= link_to 'Back to dress list', dresses_path, :class => 'btn btn-primary col-2' %>
+</div>

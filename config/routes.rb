@@ -1,6 +1,6 @@
 Personalizedress::Application.routes.draw do
-  resources :movies
-  # map '/' to be a redirect to '/movies'
-  root :to => redirect('/movies')
-  get '/search', to:"movies#search"
+  resources :dresses
+  # map '/' to be a redirect to '/dresses'
+  root :to => redirect('/dresses')
+  get '/search', to:"dresses#search"
 end
