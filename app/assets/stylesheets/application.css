@@ -52,3 +52,10 @@ form.example::after {
     clear: both;
     display: table;
 }
+
+/*For user sign in and sign up*/
+#user {
+    position: absolute;
+    right: 0;
+}
+

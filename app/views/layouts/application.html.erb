@@ -12,6 +12,14 @@
     <%# These classes come from the Bootstrap CSS framework. %>
     <nav class="navbar navbar-expand-lg bg-primary text-white mb-3">
       <h1 class="title">PersonalizeDress!</h1>
+      <div id="user">
+        <% if session[:user_name].nil? %>
+          <button class="btn btn-dark" type="submit" onclick="location.href = '/signin'">SignIn</button>
+          <button class="btn btn-dark" type="submit" onclick="location.href = '/signup'">SignUp</button>
+        <% else %>
+          <button class="btn btn-dark" type="submit"><%= session[:user_name] %></button>
+        <% end %>
+      </div>
     </nav>
     <div class="container">
       <%# Render "flash" messages in our application. This loads _flash.erb %>

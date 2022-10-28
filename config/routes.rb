@@ -8,4 +8,5 @@ Personalizedress::Application.routes.draw do
   post '/signup', to:"users#create", as: :post_signup_users
   get '/signin', to:"users#signin", as: :signin_users
   post '/signin', to:"users#post_signin", as: :post_signin_users
+  post '/logout', to:"users#logout"
 end

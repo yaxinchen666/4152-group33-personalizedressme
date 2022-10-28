@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     ret = User.validate_user(user_params[:user_name], user_params[:password])
     if ret.empty?
       flash[:notice] = "Sign in success."
+      session[:user_name] = user_params[:user_name]
       redirect_to '/'
     else
       flash[:notice] = ret
@@ -19,6 +20,11 @@ class UsersController < ApplicationController
       flash[:notice] = "Username exists."
       redirect_to signup_users_path
     end
+  end
+
+  def logout
+    session.delete(:user_name)
+    redirect_to '/'
   end
 
   private
