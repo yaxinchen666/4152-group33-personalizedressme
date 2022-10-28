@@ -14,10 +14,10 @@
       <h1 class="title">PersonalizeDress!</h1>
       <div id="user">
         <% if session[:user_name].nil? %>
-          <button class="btn btn-dark" type="submit" onclick="location.href = '/signin'">SignIn</button>
-          <button class="btn btn-dark" type="submit" onclick="location.href = '/signup'">SignUp</button>
+          <%= link_to 'SignIn', signin_users_path, :class => 'btn btn-dark' %>
+          <%= link_to 'SignUp', signup_users_path, :class => 'btn btn-dark' %>
         <% else %>
-          <button class="btn btn-dark" type="button" onclick="location.href = '/profile'"><%= session[:user_name] %></button>
+          <%= link_to session[:user_name], profile_users_path, :class => 'btn btn-dark' %>
         <% end %>
       </div>
     </nav>
