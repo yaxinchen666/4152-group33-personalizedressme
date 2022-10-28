@@ -27,6 +27,10 @@ Scenario: fail to sign in
   And I fill in "Password" with "aaaa"
   And I press "Sign in"
   Then I should see "Incorrect username or password"
+  And I fill in "Username" with "test_c"
+  And I fill in "Password" with "aaaa"
+  And I press "Sign in"
+  Then I should see "User name does not exist"
 
 Scenario: sign in and log out
   When I go to the signin page
@@ -43,4 +47,4 @@ Scenario: sign in and log out
 Scenario: turn to sign up when signing in
   When I go to the signin page
   And I follow "Sign up"
-  Then I should be on signup page
+  Then I should be on the signup page
