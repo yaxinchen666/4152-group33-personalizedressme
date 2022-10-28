@@ -17,7 +17,7 @@
           <button class="btn btn-dark" type="submit" onclick="location.href = '/signin'">SignIn</button>
           <button class="btn btn-dark" type="submit" onclick="location.href = '/signup'">SignUp</button>
         <% else %>
-          <button class="btn btn-dark" type="submit"><%= session[:user_name] %></button>
+          <button class="btn btn-dark" type="button" onclick="location.href = '/profile'"><%= session[:user_name] %></button>
         <% end %>
       </div>
     </nav>
