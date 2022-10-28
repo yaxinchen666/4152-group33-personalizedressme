@@ -1,0 +1,15 @@
+<h2>Sign In</h2>
+
+<%= form_tag post_signin_users_path, :class => 'form' do %>
+  <%= label :user, :user_name, 'Username', :class => 'col-form-label' %>
+  <%= text_field :user, :user_name, :class => 'form-control' %>
+  <%= label :user, :password, 'Password', :class => 'col-form-label' %>
+  <%= password_field :user, :password, :class => 'form-control' %>
+  <br />
+  <%= submit_tag 'Sign in', :class => 'btn btn-primary' %>
+  <br />
+  <br />
+  <br />
+  <%= content_tag :p, 'New user?' %>
+  <%= link_to 'Sign up.', signup_users_path, :class => 'btn btn-secondary' %>
+<% end %>

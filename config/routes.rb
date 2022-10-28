@@ -5,5 +5,7 @@ Personalizedress::Application.routes.draw do
   root :to => redirect('/dresses')
   get '/search', to:"dresses#search"
   get '/signup', to:"users#signup", as: :signup_users
+  post '/signup', to:"users#create", as: :post_signup_users
   get '/signin', to:"users#signin", as: :signin_users
+  post '/signin', to:"users#post_signin", as: :post_signin_users
 end
