@@ -38,4 +38,33 @@ describe UsersController, :type => :controller do
     end
   end
 
+  describe 'When an existing user wants to sign in' do
+    let!(:signin_user) {FactoryGirl.create(:user, user_name: 'signin_user', password: User.encode_password('user_pw'))}
+
+    it 'should sign in successfully' do
+      post :post_signin, {:user => {:user_name => 'signin_user', :password => 'user_pw'}}
+      expect(response).to redirect_to '/'
+    end
+
+    it 'should fail to sign in' do
+      post :post_signin, {:user => {:user_name => 'signin_user', :password => 'wrong_pw'}}
+      expect(response).to redirect_to signin_users_path
+      post :post_signin, {:user => {:user_name => 'nonexistent_user', :password => ''}}
+      expect(response).to redirect_to signin_users_path
+    end
+  end
+
+  describe 'When an existing user wants to log out' do
+    let!(:signin_user) {FactoryGirl.create(:user, user_name: 'signin_user', password: User.encode_password('user_pw'))}
+
+    it 'should log out successfully' do
+      post :post_signin, {:user => {:user_name => 'signin_user', :password => 'user_pw'}}
+      expect(session).to include :user_name
+
+      post :logout
+      expect(session).not_to include :user_name
+      expect(response).to redirect_to '/'
+    end
+  end
+
 end
